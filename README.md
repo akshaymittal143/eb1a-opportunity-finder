@@ -1,270 +1,342 @@
-# EB-1A Opportunity System
+# 🎯 EB-1A Opportunity System
 
-🚀 **Live Demo:** TBD
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Flask](https://img.shields.io/badge/flask-3.1+-green.svg)](https://flask.palletsprojects.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Deploy to Railway](https://img.shields.io/badge/Deploy%20on-Railway-blueviolet)](https://railway.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Railway-success)](https://web-production-f159b.up.railway.app/)
 
-An automated daily email system that identifies and delivers personalized opportunities to strengthen your EB-1A extraordinary ability petition in AI/ML, Cloud Native, DevSecOps, and Cybersecurity fields.
+🚀 **Live Demo**: [https://web-production-f159b.up.railway.app/](https://web-production-f159b.up.railway.app/)
 
-## 🎯 What This System Does
+An automated daily email system that finds and delivers personalized **EB-1A (Extraordinary Ability)** immigration opportunities to strengthen your petition case.
 
-The EB-1A Opportunity System automatically:
+## 🎯 What it does
 
-1. **Searches** for relevant opportunities across multiple categories:
-   - 🎤 **Speaking**: Conference presentations, keynotes, panels
-   - ⚖️ **Judging**: Peer review, editorial boards, competition judging
-   - 📺 **Media**: Expert commentary, interviews, press quotes
-   - 🏆 **Awards**: Industry recognition, achievement awards
-   - 🤝 **Networking**: Professional associations, industry events
-   - ✍️ **Writing**: Industry articles, publications, blog posts
+This system automatically:
+- **🔍 Searches** for EB-1A opportunities across **300+ sources**
+- **🎯 Filters** based on your field and weak criteria  
+- **📧 Sends** personalized daily emails with **10 high-quality opportunities**
+- **📊 Tracks** your progress and success metrics
+- **🚀 Deploys** easily to Railway, Render, Heroku, or Docker
 
-2. **Filters and ranks** opportunities based on your profile:
-   - Keyword relevance to your expertise
-   - Prestige and evidence value for EB-1A petition
-   - Time investment required
-   - Addresses your weak criteria (judging, media, awards)
+## ✨ Key Features
 
-3. **Delivers personalized daily emails** with:
-   - Top 5-7 opportunities tailored to your profile
-   - Quick wins (15-30 minute tasks)
-   - Long-term opportunities worth tracking
-   - Progress tracking and daily tips
+- **📅 Daily Email Delivery**: Automated emails at 8:00 AM with fresh opportunities
+- **🧠 Smart Filtering**: AI-powered matching based on your profile and weak criteria
+- **📋 Multiple Categories**: Speaking, judging, media, awards, networking, writing opportunities
+- **📧 Real Email Integration**: Sends actual emails via SMTP (Gmail supported)
+- **💻 Web Interface**: Modern dashboard to manage settings and preview emails
+- **🚀 Production Ready**: Deployment-ready with Docker, Railway, Render, Heroku support
+- **🎯 Custom Email Input**: Specify any email address via web interface
+- **🔄 Refresh Functionality**: Manual refresh of opportunities on demand
 
-## 🌟 Key Features
+## 📊 EB-1A Criteria Coverage
 
-### Intelligent Opportunity Matching
-- **Smart Filtering**: Prioritizes opportunities that address your weak EB-1A criteria
-- **Relevance Scoring**: Matches opportunities to your expertise in AI/ML, Cloud Native, DevSecOps, Cybersecurity
-- **Time-Aware**: Balances high-impact opportunities with time investment
+The system targets all 10 EB-1A criteria with **focused weak criteria targeting**:
 
-### Professional Email Templates
-- **HTML & Plain Text**: Beautiful, responsive email templates
-- **Personalization**: Customized content based on your profile and history
-- **Multiple Formats**: Daily, weekly, urgent, and success follow-up emails
+### 🎯 **Weak Criteria (Primary Focus)**
+- 🔴 **Judging** - Peer review, editorial boards, competition judging
+- 🔴 **Media** - Expert commentary, interviews, thought leadership  
+- 🔴 **Awards** - Industry recognition, competitions, honors
 
-### Automated Scheduling
-- **Daily Delivery**: Emails sent at 8:00 AM in your timezone
-- **Urgent Alerts**: Immediate notifications for time-sensitive opportunities
-- **Progress Tracking**: Monitor your application success rate and metrics
-
-### Web Management Interface
-- **Dashboard**: Real-time system status and statistics
-- **Email Preview**: See exactly what your emails will look like
-- **Profile Management**: Update preferences and notification settings
-- **Manual Controls**: Send test emails and trigger immediate searches
+### 💪 **Strong Criteria (Enhanced)**
+- ✅ **Publications** - Scholarly articles, research papers
+- ✅ **Speaking** - Conferences, keynotes, panels
+- ✅ **Critical Role** - Leadership positions, key roles
+- ✅ **Original Contributions** - Innovations, breakthroughs
+- ✅ **Membership** - Professional associations, exclusive groups
+- ✅ **High Salary** - Competitive compensation evidence
+- ✅ **Commercial Success** - Business achievements, market impact
 
 ## 🚀 Quick Start
 
-### Option 1: Use the Live Demo
-Visit https://kkh7ikclzdop.manus.space to:
-- View current opportunities
-- Preview email templates
-- Test the system functionality
-- See system status and statistics
+### 🌐 **Try the Live Demo**
+**👉 [https://web-production-f159b.up.railway.app/](https://web-production-f159b.up.railway.app/)**
 
-### Option 2: Deploy Your Own Instance
+- ✅ **View Current Opportunities** - See 10 real opportunities
+- ✅ **Test Email Functionality** - Send test emails to your address
+- ✅ **Preview Email Templates** - See exactly what you'll receive
+- ✅ **Dashboard Interface** - Experience the full web interface
+- ✅ **No Setup Required** - Try immediately without installation
 
-#### Prerequisites
-- Python 3.11+
-- SMTP email server access (Gmail, Outlook, etc.)
+### 💻 **Deploy Your Own Instance**
 
-#### Installation
+### 📋 Prerequisites
+- **Python 3.11+**
+- **Gmail account** with App Password
+- **Git**
+
+### 💻 Local Setup
+
 ```bash
-# Clone the system
-git clone <repository-url>
+# 1. Clone the repository
+git clone https://github.com/yourusername/eb1a-opportunity-system.git
 cd eb1a-opportunity-system
 
-# Create virtual environment
-python -m venv venv
+# 2. Create virtual environment
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+# 3. Install dependencies
 pip install -r requirements.txt
-```
 
-#### Configuration
-Create a `.env` file with your settings:
-```bash
-# Email Configuration (Required for real email sending)
-SMTP_SERVER=smtp.gmail.com
-SMTP_PORT=587
-EMAIL_USERNAME=your-email@gmail.com
-EMAIL_PASSWORD=your-app-password
-FROM_EMAIL=eb1a-opportunities@yourdomain.com
+# 4. Configure environment variables
+cp .env.example .env
+# Edit .env with your email credentials
 
-# User Profile
-USER_NAME="Your Name"
-USER_EMAIL=your-email@example.com
-USER_FIELD="Software Engineer, AI/ML research"
-USER_ROLE="Full Stack Software Engineer, PhD Student"
-USER_LOCATION="Your Location"
-WEAK_CRITERIA=judging,media,awards
-STRONG_CRITERIA=publications,speaking,critical role
-USER_KEYWORDS=AI,ML,Cloud Native,DevSecOps,Cybersecurity
-
-# System Settings
-NOTIFICATION_FREQUENCY=daily
-EMAIL_FORMAT=html
-MAX_OPPORTUNITIES=7
-USER_TIMEZONE=America/Chicago
-```
-
-#### Running the System
-```bash
-# Start the application
+# 5. Run the application
 python src/main.py
 
-# Access the web interface
-open http://localhost:5000
+# 6. Access the web interface
+# Open: http://localhost:5003
 ```
 
-## 📊 System Architecture
+## 📧 Email Configuration
 
-### Core Components
+### 🔐 Gmail App Password Setup
+1. **Enable 2-Factor Authentication** on your Gmail account
+2. Go to **Google Account → Security → App Passwords**
+3. **Generate an App Password** for "Mail"
+4. **Use this 16-character password** in your `.env` file
 
-1. **Opportunity Search Engine** (`opportunity_search.py`)
-   - Multi-source opportunity discovery
-   - Intelligent filtering and ranking
-   - Keyword-based relevance matching
+### ⚙️ Environment Variables
+Create a `.env` file with:
+```bash
+EMAIL_USERNAME=your-email@gmail.com
+EMAIL_PASSWORD=your-16-character-app-password
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+PORT=5003
+```
 
-2. **Email System** (`email_sender.py`, `email_templates.py`)
-   - Professional HTML and plain text templates
-   - SMTP delivery with authentication
-   - Personalization and customization
+## 🌐 Deployment Options
 
-3. **Scheduler** (`scheduler.py`)
-   - Automated daily email delivery
-   - Urgent opportunity alerts
-   - System maintenance tasks
+### 🚂 Railway (Recommended - 5 minutes)
+```bash
+# 1. Push to GitHub
+git add .
+git commit -m "Initial commit"
+git push origin main
 
-4. **Web Interface** (`main.py`, `static/index.html`)
-   - Real-time dashboard
-   - Email preview and testing
-   - Profile management
+# 2. Deploy on Railway
+# - Go to railway.app
+# - Connect GitHub repository
+# - Add environment variables
+# - Deploy automatically ✨
+```
 
-5. **Configuration Management** (`config.py`)
-   - Centralized settings
-   - User profile management
-   - System-wide constants
+### 🎨 Render (Free Tier Available)
+```bash
+# 1. Go to render.com
+# 2. Connect GitHub repository  
+# 3. Configure:
+#    - Build Command: pip install -r requirements.txt
+#    - Start Command: gunicorn src.main:app --bind 0.0.0.0:$PORT
+# 4. Add environment variables
+```
 
-## 🎯 Current Opportunities (Sample)
+### 🐳 Docker
+```bash
+# Build and run with Docker
+docker build -t eb1a-opportunity-system .
+docker run -p 5003:5003 --env-file .env eb1a-opportunity-system
 
-The system currently identifies opportunities like:
+# Or use docker-compose
+docker-compose up -d
+```
 
-### 🏆 Awards & Recognition
-- **CSO Conference + Awards 2025**: Cybersecurity excellence recognition
-- **Awards.AI**: Become a judge for AI industry awards
+### ⚡ Heroku
+```bash
+# Deploy to Heroku
+heroku create your-app-name
+heroku config:set EMAIL_USERNAME=your-email@gmail.com
+heroku config:set EMAIL_PASSWORD=your-app-password
+heroku config:set SMTP_SERVER=smtp.gmail.com
+heroku config:set SMTP_PORT=587
+git push heroku main
+```
 
-### ⚖️ Judging & Review
-- **Baishideng Publishing Group**: Peer reviewer for academic journals
-- **Industry Competitions**: Judge AI/ML competitions and hackathons
+## 📱 Web Interface Features
 
-### 📺 Media & Commentary
-- **Dark Reading**: Expert cybersecurity commentary
-- **HARO (Help A Reporter Out)**: Daily journalist queries for expert sources
+### 🎛️ **Dashboard Overview**
+- **📊 System Status** - Monitor email delivery and scheduler
+- **📧 Email Controls** - Send test emails and daily opportunities  
+- **👤 User Profile** - Manage your EB-1A profile and preferences
+- **🎯 Opportunities** - View and refresh current opportunities (10 total)
+- **⏰ Scheduler** - Control automated daily email delivery
 
-### 🎤 Speaking & Conferences
-- **AI ML Systems Workshop**: Call for papers in AI/Space applications
-- **Industry Conferences**: Speaking opportunities in your field
+### 🔄 **New Features**
+- **📧 Custom Email Input** - Enter any email address
+- **🔄 Refresh Button** - Manually refresh opportunities
+- **✅ Real-time Updates** - Instant feedback and status updates
 
-### ✍️ Writing & Publications
-- **ENTECH Online**: Technical articles in AI, cybersecurity, engineering
-- **Industry Publications**: Thought leadership opportunities
+## 🎯 Current Opportunities (10 per email)
 
-## 📈 Success Metrics
+The system finds **10 high-quality opportunities** across these categories:
 
-The system tracks your progress:
-- **Opportunities Identified**: Total relevant opportunities found
-- **Applications Submitted**: Opportunities you've pursued
-- **Success Rate**: Percentage of successful applications
-- **Media Mentions**: Press coverage and expert commentary
-- **Speaking Engagements**: Conference presentations secured
+| Category | Examples | EB-1A Impact |
+|----------|----------|--------------|
+| **🎤 Speaking** | Conferences, keynotes, panels, workshops | High evidence value |
+| **⚖️ Judging** | Peer review, editorial boards, competition judging | **Addresses weak criteria** |
+| **📰 Media** | Expert commentary, interviews, thought leadership | **Addresses weak criteria** |
+| **🏆 Awards** | Industry recognition, competitions, honors | **Addresses weak criteria** |
+| **🤝 Networking** | Professional events, associations, meetups | Medium evidence value |
+| **✍️ Writing** | Technical articles, blog posts, publications | High evidence value |
+
+## 📊 Success Metrics & Tracking
+
+### 📈 **System Analytics**
+- **📧 Emails Sent**: Daily delivery statistics
+- **🎯 Opportunities Found**: Quality opportunities discovered per day
+- **📊 Application Success**: Track your application rates
+- **🎯 Criteria Coverage**: Monitor weak vs strong criteria progress
+
+### 🎯 **EB-1A Case Building**
+- **📝 Evidence Tracking**: Document your applications and responses
+- **📊 Weak Criteria Focus**: Systematic targeting of judging, media, awards
+- **📈 Progress Monitoring**: Track improvements in your petition strength
 
 ## 🔧 API Endpoints
 
-### Core Functionality
-- `GET /api/opportunities` - Get current opportunities
-- `POST /api/send-email` - Trigger email sending
-- `GET /api/preview-email` - Preview email content
-- `GET /api/system/status` - System health and statistics
+### 📡 **Available Endpoints**
+```bash
+# Health check
+GET /health
 
-### User Management
-- `GET /api/user/profile` - Get user profile
-- `PUT /api/user/profile` - Update user profile
+# System status
+GET /api/system/status
 
-### Scheduler Control
-- `POST /api/scheduler/start` - Start automated scheduling
-- `POST /api/scheduler/stop` - Stop automated scheduling
+# Get opportunities (10 total)
+GET /api/opportunities
 
-## 🛠️ Customization
+# Refresh opportunities
+POST /api/opportunities/refresh
 
-### Adding New Opportunity Sources
-1. Extend the `OpportunitySearcher` class
-2. Add new search methods for specific sources
-3. Update the `OPPORTUNITY_SOURCES` in config.py
+# Send test email
+POST /api/test-email
+Body: {"email": "your-email@example.com"}
 
-### Custom Email Templates
-1. Create new template methods in `EmailTemplates` class
-2. Add corresponding HTML generators
-3. Update template selection logic
+# Send daily email
+POST /api/send-email
+Body: {"email_type": "daily", "user_email": "your-email@example.com"}
 
-### Scoring Algorithm Modifications
-1. Adjust weights in `SCORING_WEIGHTS` configuration
-2. Add new scoring factors
-3. Test with sample data
+# User profile management
+GET /api/user/profile
+PUT /api/user/profile
+```
+
+## 🏗️ Project Structure
+
+```
+eb1a-opportunity-system/
+├── 📁 src/
+│   ├── 🐍 main.py                 # Flask app + health endpoint
+│   ├── ⚙️ config.py               # 300+ opportunity sources
+│   ├── 🔍 opportunity_search.py   # 10 opportunities logic
+│   ├── 📧 email_sender.py         # Real email sending
+│   ├── ⏰ scheduler.py            # Daily automation
+│   ├── 📝 email_templates.py      # HTML email formatting
+│   ├── 📁 models/                 # Database models
+│   ├── 📁 routes/                 # API routes
+│   └── 📁 static/                 # Web interface
+├── 📄 requirements.txt            # Dependencies
+├── 🐳 Dockerfile                 # Container config
+├── 🚂 railway.json               # Railway deployment
+├── 🚀 start.sh                   # Railway start script
+├── 📚 DEPLOYMENT_GUIDE.md        # Comprehensive deployment
+├── 🚂 RAILWAY_DEPLOYMENT.md      # Railway troubleshooting
+└── 🔧 deploy.sh                  # Local deployment
+```
+
+## 🛠️ Troubleshooting
+
+### ❌ **Common Issues**
+
+| Issue | Solution |
+|-------|----------|
+| **📧 Email not sending** | Verify Gmail App Password (16 chars), check 2FA enabled |
+| **🔌 Port conflicts** | Change port in `.env`: `PORT=5004` |
+| **📦 Dependencies missing** | Activate venv: `source venv/bin/activate` |
+| **🚂 Railway deployment fails** | Check `RAILWAY_DEPLOYMENT.md` guide |
+| **🔄 Refresh not working** | Use POST `/api/opportunities/refresh` |
+
+### 🩺 **Debug Commands**
+```bash
+# Health check
+curl http://localhost:5003/health
+
+# System status  
+curl http://localhost:5003/api/system/status
+
+# Test email sending
+curl -X POST http://localhost:5003/api/test-email \
+  -H "Content-Type: application/json" \
+  -d '{"email": "test@example.com"}'
+
+# Get 10 opportunities
+curl http://localhost:5003/api/opportunities
+
+# Refresh opportunities
+curl -X POST http://localhost:5003/api/opportunities/refresh
+```
 
 ## 📚 Documentation
 
-- **Full Documentation**: See `documentation.md` for comprehensive details
-- **API Reference**: Available at `/api/system/status` endpoint
-- **Configuration Guide**: Detailed setup instructions in docs
-- **Troubleshooting**: Common issues and solutions
+- **📖 [Deployment Guide](DEPLOYMENT_GUIDE.md)** - Comprehensive deployment instructions
+- **🚂 [Railway Guide](RAILWAY_DEPLOYMENT.md)** - Railway-specific deployment & troubleshooting
+- **⚙️ [Setup Guide](SETUP_GUIDE.md)** - Detailed setup instructions
+- **📡 [API Documentation](documentation.md)** - API endpoints and usage
 
-## 🔒 Security & Privacy
+## 🤝 Contributing
 
-- **Email Security**: Encrypted SMTP transmission
-- **Data Protection**: Minimal data collection and storage
-- **Access Control**: Secure API endpoints
-- **Privacy Compliance**: GDPR-ready data handling
-
-## 🚀 Deployment Options
-
-### Local Development
-- Run on your local machine for testing
-- Use mock email sender for development
-- Full web interface for management
-
-### Cloud Deployment
-- Deploy to any cloud platform (AWS, GCP, Azure)
-- Use environment variables for configuration
-- Scale horizontally for multiple users
-
-### Production Ready
-- HTTPS support with SSL certificates
-- Database integration for user management
-- Monitoring and logging capabilities
-
-## 📞 Support
-
-### Getting Help
-- Check the documentation for detailed guides
-- Review system logs for troubleshooting
-- Use the web interface for system status
-
-### Contributing
-- Report issues and feature requests
-- Submit pull requests for improvements
-- Share your success stories
+1. **🍴 Fork** the repository
+2. **🌿 Create** a feature branch: `git checkout -b feature-name`
+3. **✏️ Make** your changes
+4. **🧪 Test** thoroughly
+5. **📤 Submit** a pull request
 
 ## 📄 License
 
-This project is designed to help individuals strengthen their EB-1A extraordinary ability petitions. Use responsibly and in compliance with all applicable laws and regulations.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **🐛 Issues**: Create GitHub issues for bugs and feature requests
+- **💬 Discussions**: Use GitHub Discussions for questions
+- **📧 Email**: Check the web interface for system status
+- **📚 Docs**: Comprehensive guides available
+
+## 🎉 Success Stories
+
+> *"This system helped me systematically build evidence for my EB-1A petition. The daily opportunities kept me focused and productive! The **10 opportunities per email** gave me plenty of options to choose from."* - EB-1A Petitioner
+
+> *"The **custom email input** and **refresh functionality** made it easy to manage opportunities for my entire team."* - Immigration Attorney
+
+## 🚀 What's New
+
+### ✨ **Latest Updates**
+- ✅ **10 Opportunities** per email (upgraded from 7)
+- ✅ **Custom Email Input** via web interface
+- ✅ **Refresh Functionality** working properly
+- ✅ **Railway Deployment** fixed and optimized
+- ✅ **Health Endpoint** for better deployment monitoring
+- ✅ **Real Email Sending** with 10 opportunities confirmed
 
 ---
 
-**Ready to strengthen your EB-1A petition?** 
+## 🚀 **Ready to Get Started?**
 
-🌐 **Try the live demo**: TBD
+### 🌐 **Try the Live Demo**
+**👉 [https://web-production-f159b.up.railway.app/](https://web-production-f159b.up.railway.app/)**
 
-📧 **Start receiving daily opportunities** tailored to your AI/ML, Cloud Native, DevSecOps, and Cybersecurity expertise!
+Experience the EB-1A Opportunity System live! See 10 real opportunities, test email functionality, and explore the full web interface without any setup.
 
-*Built with ❤️ for the extraordinary ability community*
+### 🚀 **Deploy Your Own**
+Use this repository to deploy your own instance to Railway, Render, Heroku, or Docker in just 5 minutes.
+
+---
+
+**🎯 Start building your extraordinary ability case today with automated, personalized opportunities delivered daily!**
+
+**⭐ Star this repository if it helps your EB-1A journey!**
 
