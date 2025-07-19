@@ -232,6 +232,15 @@ def update_user_profile():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Simple health check for Railway and other platforms"""
+    return jsonify({
+        "status": "healthy",
+        "timestamp": datetime.now().isoformat(),
+        "version": "1.0.0"
+    }), 200
+
 @app.route('/api/system/status', methods=['GET'])
 def get_system_status():
     """Get system status and statistics"""
@@ -367,19 +376,20 @@ def stop_scheduler():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Start the default scheduler when app starts
+default_scheduler.start()
+
 if __name__ == '__main__':
-    # Start the default scheduler
-    default_scheduler.start()
-    
     print("=== EB-1A Opportunity System ===")
     print("System starting up...")
     print(f"User: {user_profile.name} ({user_profile.email})")
     print(f"Notification frequency: {user_profile.notification_frequency.value}")
-    print("Web interface available at: http://localhost:5003")
-    print("API documentation: http://localhost:5003/api/system/status")
     
     # Production-ready configuration
     port = int(os.getenv('PORT', 5003))
     debug = os.getenv('FLASK_ENV') == 'development'
+    
+    print(f"Web interface available at: http://localhost:{port}")
+    print(f"API documentation: http://localhost:{port}/api/system/status")
     
     app.run(host='0.0.0.0', port=port, debug=debug)
