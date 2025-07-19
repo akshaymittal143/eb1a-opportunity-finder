@@ -39,6 +39,10 @@ source venv/bin/activate
 echo "📥 Installing dependencies..."
 ./venv/bin/python -m pip install -r requirements.txt
 
+# Ensure python-dotenv is installed for .env file support
+echo "📦 Installing python-dotenv for environment variable support..."
+./venv/bin/python -m pip install python-dotenv==1.0.0
+
 # Check if .env file exists
 if [ ! -f ".env" ]; then
     echo "⚠️  Warning: No .env file found"
@@ -80,7 +84,7 @@ APP_PID=$!
 sleep 5
 
 # Test health endpoint
-if curl -s http://localhost:5000/api/system/status > /dev/null; then
+if curl -s http://localhost:5001/api/system/status > /dev/null; then
     echo "✅ Application test successful"
 else
     echo "❌ Application test failed"
@@ -105,4 +109,4 @@ echo ""
 echo "🔧 To run locally:"
 echo "   python src/main.py"
 echo ""
-echo "🌐 Access at: http://localhost:5000" 
+echo "🌐 Access at: http://localhost:5001" 

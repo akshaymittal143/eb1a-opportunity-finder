@@ -14,6 +14,9 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Ensure python-dotenv is available for environment variable loading
+RUN pip install python-dotenv==1.0.0
+
 # Copy application code
 COPY . .
 
