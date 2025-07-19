@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Deploy to Railway](https://img.shields.io/badge/Deploy%20on-Railway-blueviolet)](https://railway.app)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Railway-success)](https://web-production-f159b.up.railway.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-akshaymittal143-blue)](https://github.com/akshaymittal143/eb1a-opportunity-finder)
 
 🚀 **Live Demo**: [https://web-production-f159b.up.railway.app/](https://web-production-f159b.up.railway.app/)
 
@@ -70,8 +71,8 @@ The system targets all 10 EB-1A criteria with **focused weak criteria targeting*
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/eb1a-opportunity-system.git
-cd eb1a-opportunity-system
+git clone https://github.com/akshaymittal143/eb1a-opportunity-finder.git
+cd eb1a-opportunity-finder
 
 # 2. Create virtual environment
 python3 -m venv venv
@@ -321,6 +322,121 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - ✅ **Railway Deployment** fixed and optimized
 - ✅ **Health Endpoint** for better deployment monitoring
 - ✅ **Real Email Sending** with 10 opportunities confirmed
+
+## 🔮 **Future Upgrades & Roadmap**
+
+### 🚀 **Version 1.3.0 - Advanced Analytics** (Coming Q1 2025)
+- **📊 Success Dashboard** - Track application success rates and response rates
+- **📈 Progress Charts** - Visual progress tracking with charts and graphs
+- **🎯 Criteria Completion** - EB-1A criteria completion percentage tracking
+- **📝 Evidence Manager** - Document and organize your evidence portfolio
+- **🏆 Achievement Tracker** - Track awards, media mentions, and speaking engagements
+
+### 🤖 **Version 1.4.0 - AI Enhancement** (Coming Q2 2025)
+- **🧠 AI-Powered Scoring** - Machine learning opportunity ranking based on success probability
+- **🎯 Smart Personalization** - Advanced user preference learning and adaptation
+- **📊 Predictive Analytics** - Success probability prediction for each opportunity
+- **🔍 Intelligent Search** - Enhanced opportunity discovery with NLP
+- **📧 Dynamic Templates** - AI-generated personalized email content
+
+### 👥 **Version 1.5.0 - Multi-User & Teams** (Coming Q3 2025)
+- **👥 Team Management** - Multiple user support for law firms and consultants
+- **🏢 Organization Features** - Admin dashboards for immigration attorneys
+- **📊 Aggregate Analytics** - Team-wide success tracking and reporting
+- **🔐 Advanced Security** - Role-based access control and permissions
+- **💼 Client Management** - Manage multiple EB-1A petitioners
+
+### 🌐 **Version 1.6.0 - Global Expansion** (Coming Q4 2025)
+- **🌍 Multiple Countries** - Support for other extraordinary ability visas (Canada, UK, Australia)
+- **🗣️ Multi-Language** - Support for Spanish, Chinese, and other languages
+- **📍 Location-Based** - Geographically relevant opportunities
+- **💱 Currency Support** - Multi-currency support for international opportunities
+- **🕐 Timezone Smart** - Global timezone-aware scheduling
+
+### 🔌 **Version 1.7.0 - Integrations** (Coming 2026)
+- **📧 Email Platform Integration** - Native Gmail, Outlook, Apple Mail integration
+- **📱 Mobile App** - iOS and Android native applications
+- **🔗 CRM Integration** - Salesforce, HubSpot, and other CRM platforms
+- **📄 Document Management** - Google Drive, Dropbox, and cloud storage integration
+- **🤝 Legal Software** - Integration with immigration case management systems
+
+## 💡 **Community-Requested Features**
+
+### 🎯 **High Priority** (Vote on [GitHub Issues](https://github.com/akshaymittal143/eb1a-opportunity-finder/issues))
+- **🔔 Smart Notifications** - Push notifications for urgent opportunities
+- **📱 Mobile-Responsive UI** - Enhanced mobile web experience
+- **🎨 Custom Themes** - Dark mode and custom UI themes
+- **📊 Export Features** - Export opportunities to PDF, Excel, CSV
+- **🔍 Advanced Filters** - Filter by location, time commitment, prestige level
+
+### 🚀 **Innovation Pipeline**
+- **🤖 ChatGPT Integration** - AI-powered application writing assistance
+- **📹 Video Opportunities** - YouTube, podcast, and video speaking opportunities
+- **🎓 Academic Integration** - Direct integration with academic databases
+- **💰 Funding Opportunities** - Grant and funding opportunity discovery
+- **🏆 Awards Database** - Comprehensive awards and recognition database
+
+## 🤝 **Contributing to Future Development**
+
+### 🌟 **How to Get Involved**
+
+1. **⭐ Star the Repository** - Show your support and stay updated
+2. **🐛 Report Issues** - Found a bug? [Create an Issue](https://github.com/akshaymittal143/eb1a-opportunity-finder/issues)
+3. **💡 Request Features** - Have an idea? [Start a Discussion](https://github.com/akshaymittal143/eb1a-opportunity-finder/discussions)
+4. **🔧 Submit Pull Requests** - Code contributions welcome!
+5. **📝 Improve Documentation** - Help make the docs better
+
+### 📋 **Pull Request Process**
+
+```bash
+# 1. Fork the repository on GitHub
+# 2. Clone your fork locally
+git clone https://github.com/yourusername/eb1a-opportunity-finder.git
+cd eb1a-opportunity-finder
+
+# 3. Create a feature branch
+git checkout -b feature/amazing-new-feature
+
+# 4. Make your changes and test thoroughly
+# 5. Commit your changes
+git add .
+git commit -m "✨ Add amazing new feature
+
+- Detailed description of changes
+- Why this feature is needed
+- How it improves the system"
+
+# 6. Push to your fork
+git push origin feature/amazing-new-feature
+
+# 7. Create a Pull Request on GitHub
+# 8. Participate in code review process
+```
+
+### 🎯 **Priority Areas for Contributors**
+
+| Area | Difficulty | Impact | Examples |
+|------|------------|--------|----------|
+| **🔍 New Opportunity Sources** | Easy | High | Add new conferences, journals, awards |
+| **🎨 UI/UX Improvements** | Medium | High | Better mobile experience, accessibility |
+| **📊 Analytics Features** | Medium | High | Success tracking, progress charts |
+| **🤖 AI/ML Integration** | Hard | Very High | Opportunity scoring, personalization |
+| **📚 Documentation** | Easy | Medium | Tutorials, guides, API docs |
+
+### 💰 **Sponsorship & Support**
+
+Help accelerate development:
+- **☕ Buy us a Coffee** - Support ongoing development
+- **🏢 Corporate Sponsorship** - Enterprise features and priority support
+- **🎓 Academic Partnerships** - Research collaborations welcome
+- **💼 Professional Services** - Custom implementations and consulting
+
+## 🗓️ **Release Schedule**
+
+- **🔄 Patch Releases** - Monthly (bug fixes, minor improvements)
+- **✨ Minor Releases** - Quarterly (new features, enhancements)
+- **🚀 Major Releases** - Yearly (significant new capabilities)
+- **🔥 Hotfixes** - As needed (critical issues)
 
 ---
 
