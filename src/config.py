@@ -727,7 +727,7 @@ def create_default_user_profile() -> UserProfile:
         keywords=["AI", "ML", "Cloud Native", "DevSecOps", "Cybersecurity", "Software Engineering"],
         notification_frequency=NotificationFrequency.DAILY,
         email_format=EmailFormat.HTML,
-        max_opportunities_per_email=7,
+        max_opportunities_per_email=10,
         timezone="America/Chicago"
     )
 
@@ -744,7 +744,7 @@ def load_user_profile_from_env() -> UserProfile:
         keywords=os.getenv('USER_KEYWORDS', 'AI,ML,Cloud Native,DevSecOps,Cybersecurity').split(','),
         notification_frequency=NotificationFrequency(os.getenv('NOTIFICATION_FREQUENCY', 'daily')),
         email_format=EmailFormat(os.getenv('EMAIL_FORMAT', 'html')),
-        max_opportunities_per_email=int(os.getenv('MAX_OPPORTUNITIES', '7')),
+        max_opportunities_per_email=int(os.getenv('MAX_OPPORTUNITIES', '10')),
         timezone=os.getenv('USER_TIMEZONE', 'America/Chicago')
     )
 
