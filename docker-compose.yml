@@ -1,36 +1,18 @@
 version: '3.8'
 
 services:
-  eb1a-system:
+  eb1a-opportunity-system:
     build: .
     ports:
-      - "5000:5000"
+      - "5003:5003"
     environment:
-      - FLASK_ENV=development
-      - SMTP_SERVER=smtp.gmail.com
-      - SMTP_PORT=587
       - EMAIL_USERNAME=${EMAIL_USERNAME}
       - EMAIL_PASSWORD=${EMAIL_PASSWORD}
-      - FROM_EMAIL=${FROM_EMAIL}
-      - USER_NAME=${USER_NAME:-"Test User"}
-      - USER_EMAIL=${USER_EMAIL:-"test@example.com"}
-      - USER_FIELD=${USER_FIELD:-"Software Engineer, AI/ML research"}
-      - USER_ROLE=${USER_ROLE:-"Full Stack Software Engineer, PhD Student"}
-      - USER_LOCATION=${USER_LOCATION:-"Test Location"}
-      - WEAK_CRITERIA=${WEAK_CRITERIA:-"judging,media,awards"}
-      - STRONG_CRITERIA=${STRONG_CRITERIA:-"publications,speaking,critical role"}
-      - USER_KEYWORDS=${USER_KEYWORDS:-"AI,ML,Cloud Native,DevSecOps,Cybersecurity"}
-      - NOTIFICATION_FREQUENCY=${NOTIFICATION_FREQUENCY:-"daily"}
-      - EMAIL_FORMAT=${EMAIL_FORMAT:-"html"}
-      - MAX_OPPORTUNITIES=${MAX_OPPORTUNITIES:-"7"}
-      - USER_TIMEZONE=${USER_TIMEZONE:-"America/Chicago"}
-      - SECRET_KEY=${SECRET_KEY:-"dev-secret-key"}
+      - SMTP_SERVER=${SMTP_SERVER}
+      - SMTP_PORT=${SMTP_PORT}
+      - PORT=5003
+      - FLASK_ENV=production
     volumes:
+      - ./cache:/app/cache
       - ./src/database:/app/src/database
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/api/system/status"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s 
+    restart: unless-stopped 

@@ -262,7 +262,7 @@ This project is designed to help individuals strengthen their EB-1A extraordinar
 
 **Ready to strengthen your EB-1A petition?** 
 
-🌐 **Try the live demo**: https://kkh7ikclzdop.manus.space
+🌐 **Try the live demo**: TBD
 
 📧 **Start receiving daily opportunities** tailored to your AI/ML, Cloud Native, DevSecOps, and Cybersecurity expertise!
 
