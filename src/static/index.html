@@ -247,6 +247,12 @@
             
             <div class="card">
                 <h3>📧 Email Controls</h3>
+                <div style="margin-bottom: 15px;">
+                    <label for="email-input" style="display: block; margin-bottom: 5px; font-weight: bold;">Email Address:</label>
+                    <input type="email" id="email-input" placeholder="Enter your email address" 
+                           style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 10px;">
+                    <button class="btn" onclick="updateEmail()">Update Email</button>
+                </div>
                 <button class="btn" onclick="sendTestEmail()">Send Test Email</button>
                 <button class="btn btn-secondary" onclick="sendDailyEmail()">Send Daily Email Now</button>
                 <button class="btn btn-secondary" onclick="previewEmail()">Preview Email</button>
@@ -275,6 +281,7 @@
         
         <div class="opportunities-list">
             <h3>🎯 Current Opportunities</h3>
+            <div id="opportunities-message"></div>
             <div id="opportunities">
                 <div class="loading">Loading opportunities...</div>
             </div>
@@ -388,11 +395,12 @@
         // Refresh opportunities
         async function refreshOpportunities() {
             try {
-                const data = await apiCall('/opportunities');
+                const data = await apiCall('/opportunities/refresh', { method: 'POST' });
                 updateOpportunities(data.opportunities);
+                showMessage('opportunities-message', 'Opportunities refreshed successfully!', 'success');
             } catch (error) {
                 document.getElementById('opportunities').innerHTML = 
-                    '<div class="error">Failed to load opportunities</div>';
+                    '<div class="error">Failed to refresh opportunities</div>';
             }
         }
         
@@ -423,11 +431,45 @@
             opportunitiesDiv.innerHTML = opportunitiesHtml;
         }
         
+        // Update email address
+        async function updateEmail() {
+            try {
+                const emailInput = document.getElementById('email-input');
+                const email = emailInput.value.trim();
+                
+                if (!email) {
+                    showMessage('email-status', 'Please enter a valid email address', 'error');
+                    return;
+                }
+                
+                showMessage('email-status', 'Updating email address...', 'loading');
+                const result = await apiCall('/user/profile', { 
+                    method: 'PUT', 
+                    body: JSON.stringify({ email: email }) 
+                });
+                showMessage('email-status', 'Email address updated successfully!', 'success');
+                loadUserProfile(); // Refresh profile display
+            } catch (error) {
+                showMessage('email-status', 'Failed to update email address', 'error');
+            }
+        }
+        
         // Send test email
         async function sendTestEmail() {
             try {
+                const emailInput = document.getElementById('email-input');
+                const email = emailInput.value.trim();
+                
+                if (!email) {
+                    showMessage('email-status', 'Please enter an email address first', 'error');
+                    return;
+                }
+                
                 showMessage('email-status', 'Sending test email...', 'loading');
-                const result = await apiCall('/test-email', { method: 'POST', body: JSON.stringify({}) });
+                const result = await apiCall('/test-email', { 
+                    method: 'POST', 
+                    body: JSON.stringify({ email: email }) 
+                });
                 showMessage('email-status', result.message, 'success');
             } catch (error) {
                 showMessage('email-status', 'Failed to send test email', 'error');
@@ -437,10 +479,21 @@
         // Send daily email
         async function sendDailyEmail() {
             try {
+                const emailInput = document.getElementById('email-input');
+                const email = emailInput.value.trim();
+                
+                if (!email) {
+                    showMessage('email-status', 'Please enter an email address first', 'error');
+                    return;
+                }
+                
                 showMessage('email-status', 'Sending daily email...', 'loading');
                 const result = await apiCall('/send-email', { 
                     method: 'POST', 
-                    body: JSON.stringify({ email_type: 'daily' }) 
+                    body: JSON.stringify({ 
+                        email_type: 'daily',
+                        user_email: email 
+                    }) 
                 });
                 showMessage('email-status', result.message, 'success');
                 refreshStatus(); // Update stats

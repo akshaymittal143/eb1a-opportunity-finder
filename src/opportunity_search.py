@@ -75,6 +75,20 @@ class OpportunitySearcher:
                 "deadline": "Ongoing",
                 "link": "https://entechonline.com/tag/ai/",
                 "keywords": ["AI", "Cybersecurity", "Engineering"]
+            },
+            {
+                "title": "IEEE Security & Privacy - Call for Papers",
+                "description": "Leading cybersecurity research conference",
+                "deadline": "December 15, 2025",
+                "link": "https://www.ieee-security.org/TC/SP2025/",
+                "keywords": ["Cybersecurity", "Research", "IEEE"]
+            },
+            {
+                "title": "ACM CCS 2025 - Call for Papers",
+                "description": "ACM Conference on Computer and Communications Security",
+                "deadline": "January 15, 2025",
+                "link": "https://www.sigsac.org/ccs/CCS2025/",
+                "keywords": ["Cybersecurity", "ACM", "Research"]
             }
         ]
         
@@ -114,6 +128,20 @@ class OpportunitySearcher:
                 "deadline": "Ongoing",
                 "link": "https://www.wjgnet.com/",
                 "keywords": ["Peer Review", "Academic", "Research"]
+            },
+            {
+                "title": "IEEE Transactions - Peer Reviewer",
+                "description": "Peer review for IEEE cybersecurity journals",
+                "deadline": "Ongoing",
+                "link": "https://www.ieee.org/publications/",
+                "keywords": ["Peer Review", "IEEE", "Cybersecurity"]
+            },
+            {
+                "title": "ACM Digital Library - Peer Reviewer",
+                "description": "Peer review for ACM computer science journals",
+                "deadline": "Ongoing",
+                "link": "https://www.acm.org/publications",
+                "keywords": ["Peer Review", "ACM", "Computer Science"]
             }
         ]
         
@@ -153,6 +181,20 @@ class OpportunitySearcher:
                 "deadline": "Ongoing",
                 "link": "https://www.darkreading.com/threat-intelligence",
                 "keywords": ["Cybersecurity", "Media", "Commentary"]
+            },
+            {
+                "title": "TechCrunch - Guest Contributor",
+                "description": "Write guest articles on AI and cybersecurity",
+                "deadline": "Ongoing",
+                "link": "https://www.techcrunch.com/",
+                "keywords": ["Media", "Writing", "Technology"]
+            },
+            {
+                "title": "Wired - Expert Source",
+                "description": "Provide expert commentary for technology articles",
+                "deadline": "Ongoing",
+                "link": "https://www.wired.com/",
+                "keywords": ["Media", "Expert Commentary", "Technology"]
             }
         ]
         
@@ -185,6 +227,20 @@ class OpportunitySearcher:
                 "deadline": "TBD - requires investigation",
                 "link": "https://www.computerworld.com/events/",
                 "keywords": ["Cybersecurity", "Awards", "Security Projects"]
+            },
+            {
+                "title": "Stevie Awards - Technology",
+                "description": "International business awards for technology innovation",
+                "deadline": "March 15, 2025",
+                "link": "https://www.stevieawards.com/",
+                "keywords": ["Awards", "Technology", "Innovation"]
+            },
+            {
+                "title": "Fast Company Innovation Awards",
+                "description": "Recognition for innovative technology solutions",
+                "deadline": "April 30, 2025",
+                "link": "https://www.fastcompany.com/",
+                "keywords": ["Awards", "Innovation", "Technology"]
             }
         ]
         
@@ -217,6 +273,20 @@ class OpportunitySearcher:
                 "deadline": "November 21, 2025",
                 "link": "https://live360events.com/events/orlando-2025/ailive.aspx",
                 "keywords": ["AI", "ML", "Cybersecurity", "Networking"]
+            },
+            {
+                "title": "Black Hat USA 2025",
+                "description": "Premier cybersecurity conference and networking",
+                "deadline": "August 5-8, 2025",
+                "link": "https://www.blackhat.com/us-25/",
+                "keywords": ["Cybersecurity", "Networking", "Conference"]
+            },
+            {
+                "title": "RSA Conference 2025",
+                "description": "World's leading cybersecurity conference",
+                "deadline": "May 6-9, 2025",
+                "link": "https://www.rsaconference.com/",
+                "keywords": ["Cybersecurity", "Networking", "Conference"]
             }
         ]
         
@@ -250,7 +320,7 @@ class OpportunitySearcher:
         
         return all_opportunities
     
-    def filter_opportunities(self, opportunities: List[Opportunity], max_count: int = 7) -> List[Opportunity]:
+    def filter_opportunities(self, opportunities: List[Opportunity], max_count: int = 10) -> List[Opportunity]:
         """Filter and rank opportunities based on user profile and criteria"""
         
         # Score opportunities based on multiple factors

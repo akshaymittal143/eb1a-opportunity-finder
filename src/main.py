@@ -1,5 +1,6 @@
 import os
 import sys
+from datetime import datetime
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -43,8 +44,22 @@ with app.app_context():
 scheduler_manager = SchedulerManager()
 user_profile = create_default_user_profile()
 
-# Add default user scheduler (using mock email for demo)
-default_scheduler = scheduler_manager.add_user_scheduler("default", user_profile, use_mock_email=True)
+# Force reload environment variables to ensure they're available
+load_dotenv(override=True)
+
+# Add default user scheduler (using real email if configured)
+email_username = os.getenv('EMAIL_USERNAME')
+email_password = os.getenv('EMAIL_PASSWORD')
+smtp_server = os.getenv('SMTP_SERVER')
+
+print(f"DEBUG: EMAIL_USERNAME={email_username}")
+print(f"DEBUG: EMAIL_PASSWORD={'***' if email_password else 'None'}")
+print(f"DEBUG: SMTP_SERVER={smtp_server}")
+
+use_mock_email = not all([email_username, email_password, smtp_server])
+print(f"DEBUG: use_mock_email={use_mock_email}")
+
+default_scheduler = scheduler_manager.add_user_scheduler("default", user_profile, use_mock_email=use_mock_email)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -92,7 +107,43 @@ def get_opportunities():
         return jsonify({
             "opportunities": opportunities_data,
             "count": len(opportunities_data),
-            "last_updated": "2025-07-19T10:00:00Z"
+            "last_updated": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+        })
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/opportunities/refresh', methods=['POST'])
+def refresh_opportunities():
+    """Force refresh of opportunities"""
+    try:
+        # Force new search by creating fresh searcher
+        searcher = OpportunitySearcher(user_profile.__dict__)
+        opportunities = searcher.search_all_opportunities()
+        filtered_opportunities = searcher.filter_opportunities(opportunities)
+        
+        # Convert opportunities to dict format
+        opportunities_data = []
+        for opp in filtered_opportunities:
+            opportunities_data.append({
+                "title": opp.title,
+                "type": opp.type.value,
+                "description": opp.description,
+                "deadline": opp.deadline,
+                "link": opp.link,
+                "prestige_rating": opp.prestige_rating,
+                "evidence_value": opp.evidence_value,
+                "time_investment": opp.time_investment,
+                "why_fits": opp.why_fits,
+                "keywords": opp.keywords,
+                "date_found": opp.date_found
+            })
+        
+        return jsonify({
+            "opportunities": opportunities_data,
+            "count": len(opportunities_data),
+            "last_updated": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "message": "Opportunities refreshed successfully"
         })
         
     except Exception as e:
@@ -105,6 +156,14 @@ def send_email():
         data = request.get_json()
         email_type = data.get('email_type', 'daily')
         user_email = data.get('user_email', user_profile.email)
+        
+        # Update user profile email if provided
+        if user_email and user_email != user_profile.email:
+            user_profile.email = user_email
+            # Update scheduler with new profile
+            scheduler = scheduler_manager.get_scheduler("default")
+            if scheduler:
+                scheduler.update_user_profile(user_profile)
         
         scheduler = scheduler_manager.get_scheduler("default")
         if not scheduler:
@@ -212,19 +271,42 @@ def test_email():
         data = request.get_json()
         test_email = data.get('email', user_profile.email)
         
-        # Use mock sender for testing
-        sender = MockEmailSender()
-        success = sender.send_test_email(test_email)
+        # Debug: Check environment variables
+        email_username = os.getenv('EMAIL_USERNAME')
+        email_password = os.getenv('EMAIL_PASSWORD')
+        smtp_server = os.getenv('SMTP_SERVER')
         
-        if success:
-            sent_emails = sender.get_sent_emails()
-            return jsonify({
-                "message": "Test email sent successfully",
-                "email": test_email,
-                "mock_email_data": sent_emails[-1] if sent_emails else None
-            })
+        print(f"DEBUG: EMAIL_USERNAME={email_username}")
+        print(f"DEBUG: EMAIL_PASSWORD={'***' if email_password else 'None'}")
+        print(f"DEBUG: SMTP_SERVER={smtp_server}")
+        
+        # Use real email sender if configured, otherwise mock
+        if all([email_username, email_password, smtp_server]):
+            print("DEBUG: Using real email sender")
+            sender = EmailSender()
+            success = sender.send_test_email(test_email)
+            if success:
+                return jsonify({
+                    "message": "Real email sent successfully",
+                    "email": test_email,
+                    "email_type": "real"
+                })
+            else:
+                return jsonify({"error": "Failed to send real email"}), 500
         else:
-            return jsonify({"error": "Failed to send test email"}), 500
+            print("DEBUG: Using mock email sender")
+            sender = MockEmailSender()
+            success = sender.send_test_email(test_email)
+            if success:
+                sent_emails = sender.get_sent_emails()
+                return jsonify({
+                    "message": "Mock email sent successfully",
+                    "email": test_email,
+                    "email_type": "mock",
+                    "mock_email_data": sent_emails[-1] if sent_emails else None
+                })
+            else:
+                return jsonify({"error": "Failed to send mock email"}), 500
             
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -293,11 +375,11 @@ if __name__ == '__main__':
     print("System starting up...")
     print(f"User: {user_profile.name} ({user_profile.email})")
     print(f"Notification frequency: {user_profile.notification_frequency.value}")
-    print("Web interface available at: http://localhost:5000")
-    print("API documentation: http://localhost:5000/api/system/status")
+    print("Web interface available at: http://localhost:5003")
+    print("API documentation: http://localhost:5003/api/system/status")
     
     # Production-ready configuration
-    port = int(os.getenv('PORT', 5000))
+    port = int(os.getenv('PORT', 5003))
     debug = os.getenv('FLASK_ENV') == 'development'
     
     app.run(host='0.0.0.0', port=port, debug=debug)

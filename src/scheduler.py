@@ -26,7 +26,15 @@ class OpportunityScheduler:
     
     def __init__(self, user_profile: UserProfile = None, use_mock_email: bool = False):
         self.user_profile = user_profile or create_default_user_profile()
-        self.email_sender = MockEmailSender() if use_mock_email else EmailSender()
+        
+        print(f"DEBUG: use_mock_email={use_mock_email}")
+        if use_mock_email:
+            print("DEBUG: Using MockEmailSender")
+            self.email_sender = MockEmailSender()
+        else:
+            print("DEBUG: Using EmailSender")
+            self.email_sender = EmailSender()
+        
         self.opportunity_searcher = OpportunitySearcher(self.user_profile.__dict__)
         self.is_running = False
         self.scheduler_thread = None
@@ -66,6 +74,7 @@ class OpportunityScheduler:
         """Send daily opportunities email"""
         try:
             logger.info("Starting daily opportunities email generation")
+            logger.info(f"DEBUG: max_opportunities_per_email = {self.user_profile.max_opportunities_per_email}")
             
             # Search for opportunities
             opportunities = self.opportunity_searcher.search_all_opportunities()
